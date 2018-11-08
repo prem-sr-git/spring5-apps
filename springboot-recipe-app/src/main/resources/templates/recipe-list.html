@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<link href="https://fonts.googleapis.com/css?family=Alex+Brush|Chewy|Dancing+Script|Indie+Flower|Italianno|Tangerine" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="theme/seaside/css/default.css" />
+	<title>List of Recipes - Main Page</title>
+</head>
+
+<body>
+	<form action="" class="fb-toplabel fb-100-item-column selected-object" id="docContainer">
+		<div class="fb-form-header">
+		</div>
+		<div class="section" id="section1">
+			<div class="column ui-sortable">
+				<div class="fb-item fb-100-item-column">
+					<div class="fb-header fb-item-alignment-center">
+						<h2 style="display: inline;">List of Recipes</h2>
+					</div>
+				</div>
+				<div class="emptyContainer50"></div>
+				<div>
+					<table>
+						<thead>
+							<tr>
+								<th>
+									<div class="fb-static-text fb-item-alignment-left">
+										<h3>Recipe Id</h3>
+									</div>
+								</th>
+								<th>
+									<div class="fb-static-text fb-item-alignment-left">
+										<h3>Description</h3>
+									</div>
+								</th>
+								<th>
+									<div class="fb-static-text fb-item-alignment-left">
+										<h3>Category</h3>
+									</div>
+								</th>
+								<th>
+									<div class="fb-static-text fb-item-alignment-left">
+										<h3>Difficulty</h3>
+									</div>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="recipe:${recipes}">
+								<td>
+									<h4 class="myFont fb-item-alignment-left" th:text="${recipe.id}">21</h4>
+								</td>
+								<td>
+									<h4 class="myFont fb-item-alignment-left">
+										<a th:href="@{/recipe(id =${recipe.id})}" th:text="${recipe.description}">description</a>
+									</h4>
+								</td>
+								<td>
+									<h4 class="myFont fb-item-alignment-left" th:each="category, stat : ${recipe.categories}" th:text=" ${recipe.categories[__${stat.index}__].categoryName} +  (${stat.size-1 > stat.index}? ',':'') ">
+										Category</h4>
+								</td>
+								<td>
+									<h4 class="myFont fb-item-alignment-left" th:text="${recipe.difficulty}">difficulty</h4>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="emptyContainer200"></div>
+			<div class="fb-footer" id="fb-submit-button-div">
+			</div>
+		</div>
+	</form>
+</body>
+
+</html>
