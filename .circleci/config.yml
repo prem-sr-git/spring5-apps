@@ -47,8 +47,7 @@ jobs:
           key: spring5-apps-{{ checksum "pom.xml" }}
         
       # run tests!
-      # - run: mvn integration-test
-      - run: mvn package
+      - run: mvn integration-test
       
       - store_test_results:
           path: target/surefire-reports
