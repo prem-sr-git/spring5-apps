@@ -3,7 +3,6 @@ package com.back2code.spring.boot.recipe.app.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.back2code.spring.boot.recipe.app.services.RecipeService;
 
@@ -28,12 +27,4 @@ public class IndexController {
 		return "recipe-list";
 	}
 	
-	@RequestMapping("/recipe")
-	public String recipe(@RequestParam("id") Long recipeId, Model model) {
-		log.info("@IndexController >>>>>  getting recipe for ID["+recipeId+"]");
-		model.addAttribute("recipe", recipeService.findById(recipeId));
-		
-		return "pretty-recipe";
-	}
-		
 }
