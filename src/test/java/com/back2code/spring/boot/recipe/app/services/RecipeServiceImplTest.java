@@ -1,12 +1,15 @@
 package com.back2code.spring.boot.recipe.app.services;
 
-
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import org.junit.Before;
@@ -19,32 +22,48 @@ import com.back2code.spring.boot.recipe.app.repositories.RecipeRepository;
 
 public class RecipeServiceImplTest {
 
-    RecipeServiceImpl recipeService;
+	RecipeServiceImpl recipeService;
 
-    @Mock
-    RecipeRepository recipeRepository;
+	@Mock
+	RecipeRepository recipeRepository;
 
+	@Before
+	public void setUp() throws Exception {
+		MockitoAnnotations.initMocks(this);
 
-    @Before
-    public void setUp() throws Exception {
-        MockitoAnnotations.initMocks(this);
+		recipeService = new RecipeServiceImpl(recipeRepository);
+	}
 
-        recipeService = new RecipeServiceImpl(recipeRepository);
-    }
+	@Test
+	public void getRecipes() throws Exception {
 
-    @Test
-    public void getRecipes() throws Exception {
+		Recipe recipe = new Recipe();
+		HashSet<Recipe> recipesData = new HashSet();
+		recipesData.add(recipe);
 
-        Recipe recipe = new Recipe();
-        HashSet receipesData = new HashSet();
-        receipesData.add(recipe);
+		when(recipeService.getRecipes()).thenReturn(recipesData);
 
-        when(recipeService.getRecipes()).thenReturn(receipesData);
+		Set<Recipe> recipes = recipeService.getRecipes();
 
-        Set<Recipe> recipes = recipeService.getRecipes();
+		assertEquals(recipes.size(), 1);
+		verify(recipeRepository, times(1)).findAll();
+	}
 
-        assertEquals(recipes.size(), 1);
-        verify(recipeRepository, times(1)).findAll();
-    }
+	@Test	
+	public void findById() {
+		Recipe recipe = new Recipe();
+		recipe.setId(1L);
+		
+		Optional<Recipe> recipeOptional = Optional.ofNullable(recipe);
+		
+		when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
+		
+		Recipe recipeReturned = recipeService.findById(1L);
+		
+		assertNotNull("Null Recipe returned", recipeReturned);
+		verify(recipeRepository, times(1)).findById(anyLong());
+		verify(recipeRepository, never()).findAll();
+		
+	}
 
 }
