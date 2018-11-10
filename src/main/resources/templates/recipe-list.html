@@ -3,8 +3,13 @@
 
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-	<link href="https://fonts.googleapis.com/css?family=Alex+Brush|Chewy|Dancing+Script|Indie+Flower|Italianno|Tangerine" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="theme/seaside/css/default.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+	crossorigin="anonymous"
+	th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}">
+	<script src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Alex+Brush|Chewy|Dancing+Script|Indie+Flower|Italianno|Tangerine" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="common/css/default.css" />
 	<title>List of Recipes - Main Page</title>
 </head>
 
@@ -20,9 +25,9 @@
 					</div>
 				</div>
 				<div class="emptyContainer50"></div>
-				<div>
-					<table>
-						<thead>
+				<div class="table-responsive" th:if="${not #lists.isEmpty(recipes)}">
+					<table class="table table-hover" >
+						<thead class="thead-inverse">
 							<tr>
 								<th>
 									<div class="fb-static-text fb-item-alignment-left">
