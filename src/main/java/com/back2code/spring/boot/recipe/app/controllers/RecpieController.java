@@ -18,7 +18,7 @@ public class RecpieController {
 	}
 	
 	@RequestMapping("/recipe")
-	public String recipe(@RequestParam("id") Long recipeId, Model model) {
+	public String getRecipe(@RequestParam("id") Long recipeId, Model model) {
 		log.info("@RecipeController >>>>>  getting recipe for ID["+recipeId+"]");
 		model.addAttribute("recipe", recipeService.findById(recipeId));
 		

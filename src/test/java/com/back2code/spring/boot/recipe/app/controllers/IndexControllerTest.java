@@ -12,8 +12,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.HashSet;
 import java.util.Set;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -34,7 +34,7 @@ public class IndexControllerTest {
 
     IndexController controller;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
@@ -49,7 +49,7 @@ public class IndexControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("recipe-list"));
     }
-
+    
     @Test
     public void getIndexPage() throws Exception {
 

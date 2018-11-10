@@ -12,8 +12,8 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -26,8 +26,8 @@ public class RecipeServiceImplTest {
 
 	@Mock
 	RecipeRepository recipeRepository;
-
-	@Before
+	
+	@BeforeEach
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 
@@ -48,8 +48,8 @@ public class RecipeServiceImplTest {
 		assertEquals(recipes.size(), 1);
 		verify(recipeRepository, times(1)).findAll();
 	}
-
-	@Test	
+	
+	@Test
 	public void findById() {
 		Recipe recipe = new Recipe();
 		recipe.setId(1L);
