@@ -1,27 +1,27 @@
 package com.back2code.spring.boot.recipe.app.repositories;
 
-import static org.junit.Assert.assertEquals;
 
 import java.util.Optional;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.back2code.spring.boot.recipe.app.domain.UnitOfMeasure;
-import com.back2code.spring.boot.recipe.app.repositories.UnitOfMeasureRepository;
 
-@RunWith(SpringRunner.class)
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@ExtendWith(SpringExtension.class)
 @DataJpaTest
 public class UnitOfMeasureRepositoryIT {
 
     @Autowired
     UnitOfMeasureRepository unitOfMeasureRepository;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
     }
 

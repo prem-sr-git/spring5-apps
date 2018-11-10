@@ -1,6 +1,5 @@
 package com.back2code.spring.boot.recipe.app.controllers;
 
-import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -23,6 +22,8 @@ import org.springframework.ui.Model;
 
 import com.back2code.spring.boot.recipe.app.domain.Recipe;
 import com.back2code.spring.boot.recipe.app.services.RecipeService;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class IndexControllerTest {
 

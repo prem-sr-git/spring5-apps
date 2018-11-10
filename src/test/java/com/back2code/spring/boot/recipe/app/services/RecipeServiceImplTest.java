@@ -1,7 +1,5 @@
 package com.back2code.spring.boot.recipe.app.services;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
@@ -19,6 +17,9 @@ import org.mockito.MockitoAnnotations;
 
 import com.back2code.spring.boot.recipe.app.domain.Recipe;
 import com.back2code.spring.boot.recipe.app.repositories.RecipeRepository;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class RecipeServiceImplTest {
 
@@ -60,7 +61,7 @@ public class RecipeServiceImplTest {
 		
 		Recipe recipeReturned = recipeService.findById(1L);
 		
-		assertNotNull("Null Recipe returned", recipeReturned);
+		assertNotNull(recipeReturned, "Null Recipe returned");
 		verify(recipeRepository, times(1)).findById(anyLong());
 		verify(recipeRepository, never()).findAll();
 		
