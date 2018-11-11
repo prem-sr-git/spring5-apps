@@ -1,6 +1,5 @@
 
-[![CircleCI](https://circleci.com/gh/prem-sr-git/spring5-apps/tree/master.svg?style=svg)](https://circleci.com/gh/prem-sr-git/spring5-apps/tree/master)
-
+[![CircleCI](https://circleci.com/gh/prem-sr-git/springboot-recipe-app.svg?style=svg)](https://circleci.com/gh/prem-sr-git/springboot-recipe-app)
 
 # springboot-recipe-app
 
