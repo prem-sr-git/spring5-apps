@@ -1,6 +1,7 @@
 package com.back2code.spring.boot.recipe.app.services;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.stereotype.Service;
@@ -32,7 +33,12 @@ public class RecipeServiceImpl implements RecipeService {
 	public Recipe findById(Long recipeId) {
 		
 		log.info("Getting recipes @ Service Layer.... >> getting Recipe for ID["+recipeId+"]");
-		return recipeRepository.findById(recipeId).get();
+		Optional<Recipe> recipeOptional = recipeRepository.findById(recipeId);
+		
+		if(!recipeOptional.isPresent()) {
+			throw new RuntimeException("Recipe Not Found");
+		}
+		return recipeOptional.get();
 		
 	}
 

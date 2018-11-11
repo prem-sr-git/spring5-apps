@@ -22,6 +22,6 @@ public class RecpieController {
 		log.info("@RecipeController >>>>>  getting recipe for ID["+recipeId+"]");
 		model.addAttribute("recipe", recipeService.findById(recipeId));
 		
-		return "pretty-recipe";
+		return "/recipe/pretty-recipe";
 	}
 }

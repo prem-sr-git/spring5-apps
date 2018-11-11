@@ -41,7 +41,7 @@ class RecpieControllerTest{
 		
 		mockMvc.perform(get("/recipe?id=1"))
 		.andExpect(status().isOk())
-		.andExpect(view().name("pretty-recipe"));
+		.andExpect(view().name("/recipe/pretty-recipe"));
 	}
 
 }
