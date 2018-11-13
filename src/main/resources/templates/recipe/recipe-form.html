@@ -11,11 +11,13 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/css/default.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/my-star-rating.css}" />
 
-	<title>Recipe Description</title>
+	<title>New Recipe Form</title>
 </head>
 
 <body>
-	<form id="docContainer" class="fb-toplabel fb-100-item-column">
+	<form id="docContainer" class="fb-toplabel fb-100-item-column" th:object="${recipe}" th:action="@{/recipe}"
+	    method="POST">
+		<input type="hidden" name="id" th:field="*{id}">
 		<div class="fb-form-header"></div>
 
 		<div class="section">
@@ -28,24 +30,29 @@
 
 				<div class="fb-item fb-100-item-column">
 					<div class="fb-static-text">
-						<h3 th:text="${recipe.description}">Recipe Description</h3>
+						<label>Recipe Description:&nbsp;</label>
+						<input type="text" maxlength="254" th:field="*{description}">
 					</div>
 				</div>
 				<div class="fb-item fb-100-item-column">
-					<div class="fb-item fb-50-item-column">
+					<div class="fb-item fb-33-item-column">
 						<div class="row fb-grouplabel">
 							<label>Source:&nbsp;</label>
-							<h4>
-								<a th:href="${recipe.url}" th:text="${recipe.source}" th:title="${recipe.url}">url</a>
-							</h4>
+							<input type="text" maxlength="254" th:field="*{source}">
 						</div>
 
 					</div>
-					<div class="fb-item fb-50-item-column">
+					<div class="fb-item fb-33-item-column">
+						<div class="row fb-grouplabel">
+							<label>URL:&nbsp;</label>
+							<input type="url" th:field="*{url}">
+						</div>
+					</div>
+					<div class="fb-item fb-33-item-column">
 						<div class="row fb-grouplabel">
 							<label>Category:&nbsp;</label>
 							<h4>
-								<span th:each="category, stat : ${recipe.categories}" th:text=" ${recipe.categories[__${stat.index}__].categoryName} +  (${stat.size-1 &gt; stat.index}? ', ':'') ">category</span>
+								<span th:each="category, stat : ${recipe.categories}" th:text=" ${recipe.categories[__${stat.index}__].description} +  (${stat.size-1 &gt; stat.index}? ', ':'') ">category</span>
 							</h4>
 						</div>
 
@@ -65,7 +72,7 @@
 						</div>
 
 						<div class="fb-input-box">
-							<input type="text" maxlength="254" th:placeholder="${recipe.prepTime + ' Mins'}" readonly>
+							<input type="text" maxlength="254" th:field="*{prepTime}">
 						</div>
 					</div>
 					<div class="fb-item fb-20-item-column">
@@ -74,7 +81,7 @@
 						</div>
 
 						<div class="fb-input-box">
-							<input type="text" maxlength="254" th:placeholder="${recipe.cookTime + ' Mins'}" readonly>
+							<input type="text" maxlength="254" th:field="*{cookTime}">
 						</div>
 					</div>
 					<div class="fb-item fb-20-item-column">
@@ -83,7 +90,7 @@
 						</div>
 
 						<div class="fb-input-box">
-							<input type="text" maxlength="254" th:placeholder="${recipe.servings}" readonly>
+							<input type="text" maxlength="254" th:field="*{servings}">
 						</div>
 					</div>
 					<div class="fb-item fb-20-item-column">
@@ -92,7 +99,11 @@
 						</div>
 
 						<div class="fb-input-box">
-							<input type="text" maxlength="254" th:placeholder="${recipe.difficulty}" readonly>
+							<select>
+								<option value="EASY">EASY</option>
+								<option value="MODERATE">MODERATE</option>
+								<option value="DIFFICULT">DIFFICULT</option>
+							</select>
 						</div>
 					</div>
 					<div class="fb-item fb-20-item-column">
@@ -103,7 +114,7 @@
 						<div class="fake-textbox">
 							<fieldset class="rating">
 								<div th:each="i:${#numbers.sequence(5,0)}" th:remove="tag">
-									<input type="radio" name="rating" th:id="'star'+${i}+'.5'" th:value="${i}+'.5'" th:checked="${recipe.rating-0.5==i}" th:remove="${i}==5 ? tag"
+									<input type="radio" name="rating" th:id="'star'+${i}+'.5'" th:value="${i}+'.5'" th:checked="${recipe.rating !=null && recipe.rating-0.5==i}" th:remove="${i}==5 ? tag"
 									/>
 									<label th:class="half" th:for="'star'+${i}+'.5'" th:title="${i}==0 ? '1/2 star':${i}+' 1/2 star'" th:remove="${i}==5 ? tag"></label>
 									<input type="radio" name="rating" th:id="'star'+${i}" th:value="${i}" th:checked="${recipe.rating==i}" />
@@ -118,10 +129,11 @@
 				<div class="fb-item fb-100-item-column">
 					<div class="fb-grouplabel">
 						<label>Ingredients:</label>
+						<a class="btn btn-outline-info" href="#" role="button">Edit</a>
 					</div>
 
 					<div class="myDivTextArea">
-						<div>
+						<div contenteditable="true">
 							<ul>
 								<li th:each="ingredient : ${recipe.ingredients}">
 									<span th:text="${((ingredient.amount!=null)? ingredient.amount : '' )+' '+ ((ingredient.uom !=null) ? ingredient.uom.description : '')+' '+ ingredient.description}">ingre</span>
@@ -137,7 +149,7 @@
 					</div>
 
 					<div class="fb-textarea">
-						<textarea style="resize: none;" maxlength="10000" th:text="${recipe.directions}" readonly>
+						<textarea style="resize: none;" maxlength="10000" th:field="*{directions}">
 						</textarea>
 					</div>
 				</div>
@@ -148,21 +160,20 @@
 					</div>
 
 					<div class="fb-textarea">
-						<textarea style="resize: none; height: 90px;" maxlength="10000" th:text="${(recipe.notes!=null) ? recipe.notes.recipeNotes:''}"
-						    readonly>
+						<textarea style="resize: none; height: 90px;" maxlength="10000" th:field="*{notes.recipeNotes}">
 						</textarea>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="fb-footer">
-			<div class="fb-submit-button-div fb-item-alignment-center">
+		<div class="fb-footer fb-item-alignment-center">
+			<div class="fb-submit-button-div">
 				<h4>
-					<a th:href="@{'/recipe/'+${recipe.id}+'/update'}">&nbsp;Update Recipe&nbsp;</a>
+					<button type="submit">&nbsp;Save&nbsp;</button>
 				</h4>
 			</div>
-			<div class="fb-submit-button-div fb-item-alignment-center">
+			<div class="fb-submit-button-div">
 				<h4>
 					<a th:href="@{/}">&nbsp;Go back to -> Recipe Index&nbsp;</a>
 				</h4>
