@@ -34,7 +34,7 @@ public class RecipeServiceImpl implements RecipeService {
 
 	@Override
 	public Set<Recipe> getRecipes() {
-		log.info("Getting recipes @ Service Layer.... >> getting All Recipes");
+		log.debug("Getting recipes @ Service Layer.... >> getting All Recipes");
 		Set<Recipe> recipes = new HashSet<>();
 		recipeRepository.findAll().iterator().forEachRemaining(recipes::add);
 		return recipes;
@@ -43,7 +43,7 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	public Recipe findById(Long recipeId) {
 
-		log.info("Getting recipes @ Service Layer.... >> getting Recipe for ID[" + recipeId + "]");
+		log.debug("Getting recipes @ Service Layer.... >> getting Recipe for ID[" + recipeId + "]");
 		Optional<Recipe> recipeOptional = recipeRepository.findById(recipeId);
 
 		if (!recipeOptional.isPresent()) {
@@ -63,6 +63,26 @@ public class RecipeServiceImpl implements RecipeService {
 
 		log.debug("Saved Recipe[" + savedRecipe.getId() + "]");
 		return recipeCommandConverter.convert(savedRecipe);
+	}
+
+	@Override
+	@Transactional
+	public RecipeCommand findCommandById(Long recipeId) {
+		log.debug("Getting recipes @ Service Layer.... >> getting RecipeCommand for ID[" + recipeId + "]");
+		Optional<Recipe> recipeOptional = recipeRepository.findById(recipeId);
+
+		if (!recipeOptional.isPresent()) {
+			throw new RuntimeException("Recipe Not Found");
+		}
+		RecipeCommand recipeCommand = recipeCommandConverter.convert(recipeOptional.get());
+		return recipeCommand;
+	}
+
+	@Override
+	@Transactional
+	public void deleteById(Long recipeId) {
+		log.debug("Deleting recipe @ Service Layer.... >> for ID[" + recipeId + "]");
+		recipeRepository.deleteById(recipeId);
 	}
 
 }

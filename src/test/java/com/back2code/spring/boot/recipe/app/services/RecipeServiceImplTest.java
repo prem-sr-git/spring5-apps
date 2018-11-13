@@ -27,26 +27,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class RecipeServiceImplTest {
-	
+
 	@InjectMocks
 	RecipeServiceImpl recipeService;
 
-    @Mock
-    RecipeToRecipeCommand recipeToRecipeCommand;
+	@Mock
+	RecipeToRecipeCommand recipeToRecipeCommand;
 
-    @Mock
-    RecipeCommandToRecipe recipeCommandToRecipe;
+	@Mock
+	RecipeCommandToRecipe recipeCommandToRecipe;
 
 	@Mock
 	RecipeRepository recipeRepository;
-	
+
 	@BeforeEach
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 
-        recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
+		recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
 	}
-	
+
 	@Transactional
 	@Test
 	public void getRecipesTest() throws Exception {
@@ -63,22 +63,34 @@ public class RecipeServiceImplTest {
 		verify(recipeRepository, times(1)).findAll();
 		verify(recipeRepository, never()).findById(anyLong());
 	}
-	
+
 	@Test
 	public void findById() {
 		Recipe recipe = new Recipe();
 		recipe.setId(1L);
-		
+
 		Optional<Recipe> recipeOptional = Optional.ofNullable(recipe);
-		
+
 		when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
-		
+
 		Recipe recipeReturned = recipeService.findById(1L);
-		
+
 		assertNotNull(recipeReturned, "Null Recipe returned");
 		verify(recipeRepository, times(1)).findById(anyLong());
 		verify(recipeRepository, never()).findAll();
-		
+
+	}
+
+	@Test
+	public void testDeleteById() {
+		// given
+		Long idToDelete = 2L;
+
+		// when
+		recipeService.deleteById(idToDelete);
+
+		// then
+		verify(recipeRepository, times(1)).deleteById(anyLong());
 	}
 
 }
