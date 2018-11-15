@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.back2code.spring.boot.recipe.app.commands.RecipeCommand;
 import com.back2code.spring.boot.recipe.app.services.RecipeService;
@@ -21,7 +20,7 @@ public class RecpieController {
 		this.recipeService = recipeService;
 	}
 	
-	@RequestMapping("/recipe/{recipeId}/show")
+	@GetMapping("/recipe/{recipeId}/show")
 	public String getRecipe(@PathVariable String recipeId, Model model) {
 		log.debug("@RecipeController >>>>>  getting recipe for ID["+recipeId+"]");
 		model.addAttribute("recipe", recipeService.findById(Long.valueOf(recipeId)));
@@ -29,7 +28,7 @@ public class RecpieController {
 		return "recipe/pretty-recipe";
 	}
 	
-	@RequestMapping("/recipe/new")
+	@GetMapping("/recipe/new")
 	public String newRecipe(Model model) {
 		model.addAttribute("recipe", new RecipeCommand());
 		log.debug("@RecipeController >>>>>  Creating new Recipe");
@@ -37,7 +36,7 @@ public class RecpieController {
 		return "recipe/recipe-form";
 	}
 
-	@RequestMapping("/recipe/{recipeId}/update")
+	@GetMapping("/recipe/{recipeId}/update")
 	public String updateRecipe(@PathVariable String recipeId, Model model) {
 		model.addAttribute("recipe", recipeService.findCommandById(Long.valueOf(recipeId)));
 		log.debug("@RecipeController >>>>>  Updating Recipe");
