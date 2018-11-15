@@ -103,7 +103,7 @@
 						<div class="fake-textbox">
 							<fieldset class="rating">
 								<div th:each="i:${#numbers.sequence(5,0)}" th:remove="tag">
-									<input type="radio" name="rating" th:id="'star'+${i}+'.5'" th:value="${i}+'.5'" th:checked="${recipe.rating-0.5==i}" th:remove="${i}==5 ? tag"
+									<input type="radio" name="rating" th:id="'star'+${i}+'.5'" th:value="${i}+'.5'" th:checked="${recipe.rating !=null && recipe.rating-0.5==i}" th:remove="${i}==5 ? tag"
 									/>
 									<label th:class="half" th:for="'star'+${i}+'.5'" th:title="${i}==0 ? '1/2 star':${i}+' 1/2 star'" th:remove="${i}==5 ? tag"></label>
 									<input type="radio" name="rating" th:id="'star'+${i}" th:value="${i}" th:checked="${recipe.rating==i}" />
