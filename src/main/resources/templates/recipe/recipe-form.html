@@ -29,7 +29,7 @@
 				</div>
 
 				<div class="fb-item fb-100-item-column">
-					<div class="fb-static-text">
+					<div class="fb-grouplabel">
 						<label>Recipe Description:&nbsp;</label>
 						<input type="text" maxlength="254" th:field="*{description}">
 					</div>
@@ -99,7 +99,7 @@
 						</div>
 
 						<div class="fb-input-box">
-							<select>
+							<select class="fb-input-select">
 								<option value="EASY">EASY</option>
 								<option value="MODERATE">MODERATE</option>
 								<option value="DIFFICULT">DIFFICULT</option>
@@ -129,7 +129,7 @@
 				<div class="fb-item fb-100-item-column">
 					<div class="fb-grouplabel">
 						<label>Ingredients:</label>
-						<a class="btn btn-outline-info" href="#" role="button">Edit</a>
+						<a class="btn btn-outline-info" th:href="@{'/recipe/'+${recipe.id}+'/ingredients'}" role="button" th:text="${recipe.id ==  null ? 'Add New': 'Edit'}">Edit</a>
 					</div>
 
 					<div class="myDivTextArea">

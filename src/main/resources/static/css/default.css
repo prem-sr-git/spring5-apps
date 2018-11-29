@@ -80,28 +80,28 @@ h4 {
     font-size: 30px;
     font-weight: normal;
     font-family: 'Italianno';
-    color: royalblue;
+    color: darkseagreen;
 }
 
 h5 {
     font-size: 18px;
     font-weight: normal;
     font-family: 'Italianno';
-    color: royalblue;
+    color: darkseagreen;
 }
 
 td>h4 {
     font-size: 25px;
     font-weight: normal;
     font-family: 'Italianno';
-    color: royalblue;
+    color: darkseagreen;
 }
 
 td>h5 {
     font-size: 18px;
     font-weight: normal;
     font-family: 'Italianno';
-    color: royalblue;
+    color: darkseagreen;
 }
 
 table {
@@ -127,17 +127,15 @@ tr:nth-child(even) {
 }
 
 .deleteCheckBox::before {
-    content: "\2612";
+    /* content: "\2612"; */
     display: inline-block;
     cursor: pointer;
 }
 
 .updateCheckBox::before {
-    content: "\2611";
     display: inline-block;
     cursor: pointer;
 }
-
 
 /* LABELS & HEADERS -- END*/
 
@@ -248,8 +246,6 @@ tr:nth-child(even) {
 /* Rule for the input-boxes */
 
 .fake-textbox,
-/* #docContainer .fb-dropdown select, */
-
 #docContainer .fb-input-box input {
     color: #666;
     text-align: center;
@@ -292,7 +288,7 @@ tr:nth-child(even) {
 .myDivTextArea,
 .fake-textarea,
 .fake-textbox,
-#docContainer select,
+#docContainer .fb-input-select,
 #docContainer input[type=text],
 #docContainer input[type=url],
 #docContainer textarea {
@@ -315,8 +311,6 @@ tr:nth-child(even) {
 
 .fake-textarea,
 .fake-textbox,
-/* #docContainer select, */
-
 #docContainer input[type=text],
 #docContainer input[type=url],
 #docContainer textarea {
@@ -325,7 +319,7 @@ tr:nth-child(even) {
 
 /* Rule for the dropdown select */
 
-#docContainer .fb-dropdown select {
+#docContainer .fb-dropdown .fb-input-select {
     padding: 2px;
     color: #666;
     background-color: #666;
@@ -386,4 +380,40 @@ button {
     align-content: center;
     background: transparent;
     cursor: pointer;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    color: darkseagreen;
+}
+button:hover {
+    text-decoration: underline;
+}
+
+.addcolor {
+    color: rgb(166, 166, 166) !important;
+}
+
+input.transparent-input {
+    background-color: rgba(0, 0, 0, 0) !important;
+    border: none !important;
+
+    font-size: 25px !important;
+    font-weight: normal !important;
+    font-family: 'Italianno'!important;
+    color: rgb(166, 166, 166) !important;
+
+    width: 100%;
+    padding: 5px;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;   
+
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    /* -webkit-box-shadow: rgba(0, 0, 0, 0) !important;  -- makes it white*/
+     /* 0 0 0 1000px white inset !important; --- makes it white*/
+    transition: background-color 5000s ease-in-out 0s;
 }

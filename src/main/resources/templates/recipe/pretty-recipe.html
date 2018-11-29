@@ -45,7 +45,7 @@
 						<div class="row fb-grouplabel">
 							<label>Category:&nbsp;</label>
 							<h4>
-								<span th:each="category, stat : ${recipe.categories}" th:text=" ${recipe.categories[__${stat.index}__].categoryName} +  (${stat.size-1 &gt; stat.index}? ', ':'') ">category</span>
+								<span th:each="category, stat : ${recipe.categories}" th:text=" ${recipe.categories[__${stat.index}__].description} +  (${stat.size-1 &gt; stat.index}? ', ':'') ">category</span>
 							</h4>
 						</div>
 
@@ -124,7 +124,7 @@
 						<div>
 							<ul>
 								<li th:each="ingredient : ${recipe.ingredients}">
-									<span th:text="${((ingredient.amount!=null)? ingredient.amount : '' )+' '+ ((ingredient.uom !=null) ? ingredient.uom.description : '')+' '+ ingredient.description}">ingre</span>
+									<span th:text="${((ingredient.amountInFracns!=null)? ingredient.amountInFracns : '' )+' '+ ((ingredient.uom !=null) ? ingredient.uom.description : '')+' '+ ingredient.description}">ingre</span>
 								</li>
 							</ul>
 						</div>

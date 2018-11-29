@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 public class RecpieController {
-	public RecipeService recipeService;
+	private final  RecipeService recipeService;
 
 	public RecpieController(RecipeService recipeService) {
 		this.recipeService = recipeService;
@@ -23,7 +23,7 @@ public class RecpieController {
 	@GetMapping("/recipe/{recipeId}/show")
 	public String getRecipe(@PathVariable String recipeId, Model model) {
 		log.debug("@RecipeController >>>>>  getting recipe for ID["+recipeId+"]");
-		model.addAttribute("recipe", recipeService.findById(Long.valueOf(recipeId)));
+		model.addAttribute("recipe", recipeService.findCommandById(Long.valueOf(recipeId)));
 		
 		return "recipe/pretty-recipe";
 	}
