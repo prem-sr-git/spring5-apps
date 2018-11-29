@@ -3,18 +3,15 @@
 
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
-	crossorigin="anonymous"
-	th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}">
-	<script src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	    crossorigin="anonymous" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}">
 	<link href="https://fonts.googleapis.com/css?family=Alex+Brush|Chewy|Dancing+Script|Indie+Flower|Italianno|Tangerine" rel="stylesheet"/>
-	<link rel="stylesheet" type="text/css" href="common/css/default.css" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/default.css}" />
 	<title>List of Recipes - Main Page</title>
 </head>
 
 <body>
-	<form action="" class="fb-toplabel fb-100-item-column selected-object" id="docContainer">
+	<form class="fb-toplabel fb-100-item-column selected-object" id="docContainer">
 		<div class="fb-form-header">
 		</div>
 		<div class="section" id="section1">
@@ -26,12 +23,12 @@
 				</div>
 				<div class="emptyContainer50"></div>
 				<div class="table-responsive" th:if="${not #lists.isEmpty(recipes)}">
-					<table class="table table-hover" >
+					<table class="table table-hover">
 						<thead class="thead-inverse">
 							<tr>
 								<th>
 									<div class="fb-static-text fb-item-alignment-left">
-										<h3>Recipe Id</h3>
+										<h3>Id</h3>
 									</div>
 								</th>
 								<th>
@@ -39,14 +36,24 @@
 										<h3>Description</h3>
 									</div>
 								</th>
-								<th>
+								<!-- <th>
 									<div class="fb-static-text fb-item-alignment-left">
 										<h3>Category</h3>
 									</div>
-								</th>
+								</th> -->
 								<th>
 									<div class="fb-static-text fb-item-alignment-left">
 										<h3>Difficulty</h3>
+									</div>
+								</th>
+								<th>
+									<div>
+										<h3>Modify</h3>
+									</div>
+								</th>
+								<th>
+									<div>
+										<h3>Delete</h3>
 									</div>
 								</th>
 							</tr>
@@ -58,15 +65,28 @@
 								</td>
 								<td>
 									<h4 class="myFont fb-item-alignment-left">
-										<a th:href="@{/recipe(id =${recipe.id})}" th:text="${recipe.description}">description</a>
+										<a th:href="@{'/recipe/'+${recipe.id}+'/show'}" th:text="${recipe.description}">description</a>
+									</h4>
+								</td>
+								<!-- <td>
+									<h4 class="myFont fb-item-alignment-left" th:each="category, stat : ${recipe.categories}" th:text=" ${recipe.categories[__${stat.index}__].categoryName} +  (${stat.size-1 > stat.index}? ',':'') ">
+										Category</h4>
+								</td> -->
+								<td>
+									<h5 class="myFont fb-item-alignment-left" th:text="${recipe.difficulty}">difficulty</h5>
+								</td>
+								<td>
+									<h4 class="fb-item-alignment-center">
+										<a th:class="updateCheckBox" th:href="@{'/recipe/'+${recipe.id}+'/update'}" th:title="'Modify Recipe.'"></a>
 									</h4>
 								</td>
 								<td>
-									<h4 class="myFont fb-item-alignment-left" th:each="category, stat : ${recipe.categories}" th:text=" ${recipe.categories[__${stat.index}__].categoryName} +  (${stat.size-1 > stat.index}? ',':'') ">
-										Category</h4>
-								</td>
-								<td>
-									<h4 class="myFont fb-item-alignment-left" th:text="${recipe.difficulty}">difficulty</h4>
+									<h4 class="fb-item-alignment-center">
+										<a class="btn bs-confirmation" th:href="@{'/recipe/'+${recipe.id}+'/delete'}" th:title="'Delete Recipe ?'" data-toggle="confirmation">X</a>
+
+										<!-- deleteCheckBox -->
+										<!-- btn btn-large btn-primary -->
+									</h4>
 								</td>
 							</tr>
 						</tbody>
@@ -75,9 +95,28 @@
 			</div>
 			<div class="emptyContainer200"></div>
 			<div class="fb-footer" id="fb-submit-button-div">
+				<div class="fb-submit-button-div fb-item-alignment-center">
+					<h4>
+						<a th:href="@{/recipe/new}">Add New Recipe</a>
+					</h4>
+				</div>
 			</div>
 		</div>
 	</form>
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.js"></script>
+  	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap-confirmation2/dist/bootstrap-confirmation.min.js"></script>
+	<script>
+	//console.log('Bootstrap ' + $.fn.popover.Constructor.VERSION);
+	//console.log('Bootstrap Confirmation ' + $.fn.confirmation.Constructor.VERSION);
+	
+	$('[data-toggle=confirmation]').confirmation({
+	    rootSelector: '[data-toggle=confirmation]',
+	    container: 'body'
+	  });
+	
+	</script>		
 </body>
-
 </html>

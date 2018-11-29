@@ -50,11 +50,12 @@
 }
 
 /* Rule for the title container */
-	#docContainer .fb-header { 
-	margin: 0px 0px 0px 0px;
-	padding: 0px 0px 0px 0px;
-	color:#000;
-	text-align:center;
+
+#docContainer .fb-header {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    color: #000;
+    text-align: center;
 }
 
 #docContainer .fb-header h2 {
@@ -82,8 +83,22 @@ h4 {
     color: royalblue;
 }
 
+h5 {
+    font-size: 18px;
+    font-weight: normal;
+    font-family: 'Italianno';
+    color: royalblue;
+}
+
 td>h4 {
     font-size: 25px;
+    font-weight: normal;
+    font-family: 'Italianno';
+    color: royalblue;
+}
+
+td>h5 {
+    font-size: 18px;
     font-weight: normal;
     font-family: 'Italianno';
     color: royalblue;
@@ -101,7 +116,7 @@ td {
     height: 5px;
 }
 
-thead th{
+thead th {
     border-bottom-color: teal;
     border-bottom-style: dashed;
     border-bottom-width: 2px;
@@ -110,6 +125,19 @@ thead th{
 tr:nth-child(even) {
     background-color: lightcyan;
 }
+
+.deleteCheckBox::before {
+    content: "\2612";
+    display: inline-block;
+    cursor: pointer;
+}
+
+.updateCheckBox::before {
+    content: "\2611";
+    display: inline-block;
+    cursor: pointer;
+}
+
 
 /* LABELS & HEADERS -- END*/
 
@@ -142,6 +170,28 @@ tr:nth-child(even) {
 
 #docContainer .fb-item {
     padding: 5px 5px 10px 5px;
+}
+
+/*  General rules for submit button, static text, and header alignments */
+
+#docContainer .fb-item-alignment-left {
+    padding-left: 0px;
+    text-align: left;
+}
+
+#docContainer .fb-item-alignment-center {
+    text-align: center;
+}
+
+#docContainer .fb-item-alignment-right {
+    padding-right: 0px;
+    text-align: right;
+}
+
+#docContainer .fb-item-alignment-justify {
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: justify;
 }
 
 /*Normal mode classes*/
@@ -198,6 +248,8 @@ tr:nth-child(even) {
 /* Rule for the input-boxes */
 
 .fake-textbox,
+/* #docContainer .fb-dropdown select, */
+
 #docContainer .fb-input-box input {
     color: #666;
     text-align: center;
@@ -240,7 +292,9 @@ tr:nth-child(even) {
 .myDivTextArea,
 .fake-textarea,
 .fake-textbox,
+#docContainer select,
 #docContainer input[type=text],
+#docContainer input[type=url],
 #docContainer textarea {
     color: #666;
     font: normal 12px 'Helvetica Neue', Helvetica;
@@ -258,14 +312,32 @@ tr:nth-child(even) {
 }
 
 /* Form Elements. This rule is common to all inputs boxes */
-.fake-textarea,
-.fake-textbox,    
-#docContainer input[type=text],
-#docContainer textarea{
-	padding: 7px 4px 7px 4px;
-} 
 
-/*  Rule for Submit button container */
+.fake-textarea,
+.fake-textbox,
+/* #docContainer select, */
+
+#docContainer input[type=text],
+#docContainer input[type=url],
+#docContainer textarea {
+    padding: 7px 4px 7px 4px;
+}
+
+/* Rule for the dropdown select */
+
+#docContainer .fb-dropdown select {
+    padding: 2px;
+    color: #666;
+    background-color: #666;
+    font: normal 12px 'Helvetica Neue', Helvetica;
+    border: 4px solid #89ACA9;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    width: 95%;
+    max-width: 93%;
+    align-content: center;
+}
 
 #docContainer .fb-footer {
     background-image: url('../images/fb_footer.png');
@@ -294,17 +366,24 @@ tr:nth-child(even) {
 
 /*  Rule for Submit button */
 
-.fb-submit-button {
+.fb-submit-button-div {
     display: inline-block;
     width: auto;
     height: 46px;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    /* background: url('../images/btn_submit.png') no-repeat; */
-    /* padding: 4px 12px; */
+    background: url('../images/btn_submit.png') no-repeat;
     background: #fff;
     border: 4px solid #bdc3c7;
-    /* -webkit-transition: border-color 0.6s; */
-    /* transition: border-color 0.6s; */
     border-radius: 20px;
+}
+
+/*  Rule for Submit button */
+
+button {
+    border: none;
+    text-align: center;
+    align-content: center;
+    background: transparent;
+    cursor: pointer;
 }
