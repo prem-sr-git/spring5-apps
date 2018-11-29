@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	    	crossorigin="anonymous" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}">
+	    
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+	    	crossorigin="anonymous">
+	    
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/css/bootstrap-select.min.css">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alex+Brush|Chewy|Dancing+Script|Indie+Flower|Italianno|Tangerine"/>
+	
+	<link rel="stylesheet" type="text/css" th:href="@{/css/default.css}" />
+	
+	<link rel="stylesheet" type="text/css" th:href="@{/css/editable-table.css}" />
+	
+	<title th:text="'Ingredient - '+${operation}">Ingredient Form Title</title>
+	
+</head>
+
+<body>
+	<form class="fb-toplabel fb-100-item-column selected-object" id="docContainer" th:object="${ingredient}" method="post" th:action="'/recipe/'+${ingredient.recipeId}+'/ingredients/saveOrUpdate'">
+		<div class="fb-form-header">
+		</div>
+		<div class="section" id="section1">
+			<div class="column ui-sortable">
+				<div class="fb-item fb-100-item-column">
+					<div class="fb-header fb-item-alignment-center">
+						<h2 style="display: inline;" th:text="${operation}+' Ingredient'">Heading</h2>
+					</div>
+				</div>
+				<div class="emptyContainer50"></div>
+				<div id="table" class="table-editable">
+					<table class="table">
+						<thead class="thead-inverse">
+							<tr>
+								<th>
+									<div class="fb-static-text fb-item-alignment-left">
+										<h3>Recipe Id</h3>
+									</div>
+								</th>
+								<th>
+									<div class="fb-static-text fb-item-alignment-left">
+										<h3>Amount</h3>
+									</div>
+								</th>
+								<th>
+									<div class="fb-static-text fb-item-alignment-left">
+										<h3>UnitOfMeasure</h3>
+									</div>
+								</th>
+								<th>
+									<div class="fb-static-text fb-item-alignment-left">
+										<h3>Description</h3>
+									</div>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<h4 class="myFont fb-item-alignment-left">
+										<input class="form-control transparent-input" type="text" placeholder="recipeId" th:field ="*{recipeId}" disabled="disabled"/>
+										<input type="hidden" th:field ="*{id}"/>
+									</h4>
+								</td>							
+								<td>
+									<h4 class="myFont fb-item-alignment-left">
+										<input class="form-control transparent-input" type="text" placeholder="Undefined" th:field ="*{amount}"/>
+									</h4>
+								</td>
+								<td>
+									<h4>
+										<select title="UnitOfMeasure" 
+											class="selectpicker" 
+											data-width="fit"
+											data-style="btn btn-outline-info btn-lg" 
+											data-live-search="true"
+											th:field="*{uom.id}">
+									 		<option th:value ="0">Select...</option> 
+											<option th:each="uom_ : ${uoms}" 
+													th:value="${uom_.id}" 
+													th:text="${uom_.description}"
+													th:selected="${uom !=null && uom.id == uom_.id}">One</option>
+										</select>
+									</h4>
+								</td>
+								<td>
+									<h4 class="myFont fb-item-alignment-left">
+										<input class="transparent-input" type="text" placeholder="Untitled" th:field ="*{description}"/>
+									</h4>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- <div class="emptyContainer200"></div> -->
+			<div class="fb-footer  fb-item-alignment-center">
+				<div class="fb-submit-button-div">
+					<h4>
+						<button type="submit">&nbsp;Save&nbsp;</button>
+					</h4>
+				</div>
+				<div class="fb-submit-button-div">
+					<h4>
+						<a th:href="'@{redirect:/recipe/'+${ingredient.recipeId}+'/ingredients}'">Go back to Ingredients</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+	</form>
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	    crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+	    crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap-confirmation2/dist/bootstrap-confirmation.min.js"></script>
+	<script th:src="@{/js/ingredients-list.js}"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/js/bootstrap-select.min.js"></script>
+
+	<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/js/i18n/defaults-en_US.min.js"></script>
+
+
+	<script>
+		//console.log('Bootstrap ' + $.fn.popover.Constructor.VERSION);
+		//console.log('Bootstrap Confirmation ' + $.fn.confirmation.Constructor.VERSION);
+
+		$('[data-toggle=confirmation]').confirmation({
+			rootSelector: '[data-toggle=confirmation]',
+			container: 'body'
+		});
+	</script>
+</body>
+
+</html>

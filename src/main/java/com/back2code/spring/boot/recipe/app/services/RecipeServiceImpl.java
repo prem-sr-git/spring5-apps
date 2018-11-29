@@ -24,7 +24,6 @@ public class RecipeServiceImpl implements RecipeService {
 	final private RecipeCommandToRecipe recipeConverter;
 	final private RecipeToRecipeCommand recipeCommandConverter;
 
-	
 	public RecipeServiceImpl(RecipeRepository recipeRepository, RecipeCommandToRecipe recipeConverter,
 			RecipeToRecipeCommand recipeCommandConverter) {
 		this.recipeRepository = recipeRepository;
