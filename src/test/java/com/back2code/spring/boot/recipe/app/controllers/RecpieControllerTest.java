@@ -21,7 +21,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.back2code.spring.boot.recipe.app.commands.RecipeCommand;
-import com.back2code.spring.boot.recipe.app.domain.Recipe;
 import com.back2code.spring.boot.recipe.app.services.RecipeService;
 
 class RecpieControllerTest{
