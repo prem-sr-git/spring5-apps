@@ -1,4 +1,3 @@
-<!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -99,10 +98,13 @@
 						</div>
 
 						<div class="fb-input-box">
-							<select class="fb-input-select">
-								<option value="EASY">EASY</option>
-								<option value="MODERATE">MODERATE</option>
-								<option value="DIFFICULT">DIFFICULT</option>
+							<select 
+								class="fb-input-select" 
+								data-style="btn btn-outline-info btn-lg" 
+								th:field="*{difficulty}">
+								<option th:each="difficultyVal : ${T(com.back2code.spring.boot.recipe.app.domain.Difficulty).values()}"
+											th:value="${difficultyVal.name()}"
+											th:text="${difficultyVal.value()}">EASY</option>
 							</select>
 						</div>
 					</div>
