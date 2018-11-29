@@ -2,7 +2,6 @@ package com.back2code.spring.boot.recipe.app.utils;
 
 import java.math.BigDecimal;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,7 +19,7 @@ class DecimalToFractionConverterTest {
 		
 		//then
 		
-		assertEquals("3 1/4", fractionValue);
+		assertEquals("4", fractionValue);
 	}
 
 }
