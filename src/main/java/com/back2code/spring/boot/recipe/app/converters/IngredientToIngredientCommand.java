@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import com.back2code.spring.boot.recipe.app.commands.IngredientCommand;
 import com.back2code.spring.boot.recipe.app.domain.Ingredient;
+import com.back2code.spring.boot.recipe.app.utils.DecimalToFractionConverter;
 
 import lombok.Synchronized;
 
@@ -28,7 +29,15 @@ public class IngredientToIngredientCommand implements Converter<Ingredient, Ingr
 
 		final IngredientCommand ingredientCmd = new IngredientCommand();
 		ingredientCmd.setId(source.getId());
+		if (source.getRecipe() != null) {
+			ingredientCmd.setRecipeId(source.getRecipe().getId());
+		}
 		ingredientCmd.setAmount(source.getAmount());
+		
+		if(source.getAmount() !=null) {
+			ingredientCmd.setAmountInFracns(DecimalToFractionConverter.convert(source.getAmount()));
+		}
+		
 		ingredientCmd.setDescription(source.getDescription());
 
 		if (source.getUom() != null) {
