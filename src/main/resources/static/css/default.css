@@ -1,140 +1,135 @@
 #docContainer {
-    margin: 30px auto;
-    padding: 0px 0px 0px 0px;
-    width: 750px;
-    font-family: 'Chewy';
-    font-size: 20px;
-    color: #fff;
-    border: 0px solid #00A99D;
-    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.28);
-    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.28);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.28);
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    border-radius: 0px;
-    background: url('../images/fb_bg.png') repeat;
+	margin: 30px auto;
+	padding: 0px 0px 0px 0px;
+	width: 750px;
+	font-family: 'Chewy';
+	font-size: 20px;
+	color: #fff;
+	border: 0px solid #00A99D;
+	-webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.28);
+	-moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.28);
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.28);
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	background: url('../images/fb_bg.png') repeat;
 }
 
 /* LABELS & HEADERS  -- START */
-
 #docContainer.fb-toplabel .fb-static-text {
-    width: 90%
+	width: 90%
 }
 
 /* Rule for the static text container*/
-
 #docContainer .fb-static-text {
-    margin: 0px;
-    color: #00A99D;
+	margin: 0px;
+	color: #00A99D;
 }
 
 /* Rule for the static text */
-
 #docContainer .fb-static-text p {
-    font-family: Helvetica;
-    font-size: 16px;
-    line-height: 1.4em;
+	font-family: Helvetica;
+	font-size: 16px;
+	line-height: 1.4em;
 }
 
 #docContainer .fb-static-text p {
-    font-family: Helvetica;
-    font-size: 16px;
-    line-height: 1.4em;
+	font-family: Helvetica;
+	font-size: 16px;
+	line-height: 1.4em;
 }
 
 #docContainer .fb-form-header {
-    height: 50px;
-    background: url('../images/fb_header.png') no-repeat;
-    padding-left: 10px;
-    padding-top: 10px;
+	height: 50px;
+	background: url('../images/fb_header.png') no-repeat;
+	padding-left: 10px;
+	padding-top: 10px;
 }
 
 /* Rule for the title container */
-
 #docContainer .fb-header {
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
-    color: #000;
-    text-align: center;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	color: #000;
+	text-align: center;
 }
 
 #docContainer .fb-header h2 {
-    font-size: 40px;
-    font-weight: normal;
-    padding-top: 0px;
-    color: #Fff;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-    vertical-align: top;
-    align-content: center !important;
+	font-size: 40px;
+	font-weight: normal;
+	padding-top: 0px;
+	color: #Fff;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+	vertical-align: top;
+	align-content: center !important;
 }
 
 h3 {
-    font-size: 40px;
-    font-weight: normal;
-    font-family: 'Tangerine';
-    color: tomato;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+	font-size: 40px;
+	font-weight: normal;
+	font-family: 'Tangerine';
+	color: tomato;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 
 h4 {
-    font-size: 30px;
-    font-weight: normal;
-    font-family: 'Italianno';
-    color: darkseagreen;
+	font-size: 30px;
+	font-weight: normal;
+	font-family: 'Italianno';
+	color: darkseagreen;
 }
 
 h5 {
-    font-size: 18px;
-    font-weight: normal;
-    font-family: 'Italianno';
-    color: darkseagreen;
+	font-size: 18px;
+	font-weight: normal;
+	font-family: 'Italianno';
+	color: darkseagreen;
 }
 
 td>h4 {
-    font-size: 25px;
-    font-weight: normal;
-    font-family: 'Italianno';
-    color: darkseagreen;
+	font-size: 25px;
+	font-weight: normal;
+	font-family: 'Italianno';
+	color: darkseagreen;
 }
 
 td>h5 {
-    font-size: 18px;
-    font-weight: normal;
-    font-family: 'Italianno';
-    color: darkseagreen;
+	font-size: 18px;
+	font-weight: normal;
+	font-family: 'Italianno';
+	color: darkseagreen;
 }
 
 table {
-    border-collapse: collapse;
-    width: 100%;
+	border-collapse: collapse;
+	width: 100%;
 }
 
-th,
-td {
-    text-align: left;
-    padding: 1px;
-    height: 5px;
+th, td {
+	text-align: left;
+	padding: 1px;
+	height: 5px;
 }
 
 thead th {
-    border-bottom-color: teal;
-    border-bottom-style: dashed;
-    border-bottom-width: 2px;
+	border-bottom-color: teal;
+	border-bottom-style: dashed;
+	border-bottom-width: 2px;
 }
 
 tr:nth-child(even) {
-    background-color: lightcyan;
+	background-color: lightcyan;
 }
 
 .deleteCheckBox::before {
-    /* content: "\2612"; */
-    display: inline-block;
-    cursor: pointer;
+	/* content: "\2612"; */
+	display: inline-block;
+	cursor: pointer;
 }
 
 .updateCheckBox::before {
-    display: inline-block;
-    cursor: pointer;
+	display: inline-block;
+	cursor: pointer;
 }
 
 /* LABELS & HEADERS -- END*/
@@ -142,278 +137,251 @@ tr:nth-child(even) {
 /* ------------------------------------------------------------- */
 
 /* FORM CONTAINERS -- START */
-
 #docContainer section {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: top;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: top;
 }
 
 #docContainer .column {
-    margin: 0px;
-    padding: 0 5% 0 5%;
+	margin: 0px;
+	padding: 0 5% 0 5%;
 }
 
 /* FORM CONTAINERS -- END */
 
 /* Common rule for the items (label and control)*/
-
 #docContainer .fb-item {
-    width: 100%;
-    display: inline-block;
-    zoom: 1;
-    *display: inline;
+	width: 100%;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
 }
 
 #docContainer .fb-item {
-    padding: 5px 5px 10px 5px;
+	padding: 5px 5px 10px 5px;
 }
 
 /*  General rules for submit button, static text, and header alignments */
-
 #docContainer .fb-item-alignment-left {
-    padding-left: 0px;
-    text-align: left;
+	padding-left: 0px;
+	text-align: left;
 }
 
 #docContainer .fb-item-alignment-center {
-    text-align: center;
+	text-align: center;
 }
 
 #docContainer .fb-item-alignment-right {
-    padding-right: 0px;
-    text-align: right;
+	padding-right: 0px;
+	text-align: right;
 }
 
 #docContainer .fb-item-alignment-justify {
-    padding-left: 0px;
-    padding-right: 0px;
-    text-align: justify;
+	padding-left: 0px;
+	padding-right: 0px;
+	text-align: justify;
 }
 
 /*Normal mode classes*/
-
 #docContainer .fb-item.fb-100-item-column {
-    width: 99%;
+	width: 99%;
 }
 
 #docContainer .fb-item.fb-75-item-column {
-    width: 72%;
+	width: 72%;
 }
 
 #docContainer .fb-item.fb-66-item-column {
-    width: 63%;
+	width: 63%;
 }
 
 #docContainer .fb-item.fb-50-item-column {
-    width: 46%;
+	width: 46%;
 }
 
 #docContainer .fb-item.fb-33-item-column {
-    width: 29%;
+	width: 29%;
 }
 
 #docContainer .fb-item.fb-25-item-column {
-    width: 21%;
+	width: 21%;
 }
 
 #docContainer .fb-item.fb-20-item-column {
-    width: 16%;
+	width: 16%;
 }
 
 /* Rule for the labels */
-
 #docContainer .fb-grouplabel {
-    margin-bottom: 2px;
-    margin-top: 5px;
-    padding-right: 5px;
-    clear: both;
+	margin-bottom: 2px;
+	margin-top: 5px;
+	padding-right: 5px;
+	clear: both;
 }
 
 #docContainer .fb-grouplabel label {
-    font-weight: normal;
-    margin-bottom: 0px;
+	font-weight: normal;
+	margin-bottom: 0px;
 }
 
 /* Rule for the input-boxes container */
-
-.fake-textbox,
-#docContainer .fb-input-box {
-    margin-bottom: 5px;
+.fake-textbox, #docContainer .fb-input-box {
+	margin-bottom: 5px;
 }
 
 /* Rule for the input-boxes */
-
-.fake-textbox,
-#docContainer .fb-input-box input {
-    color: #666;
-    text-align: center;
-    background: url('../images/fb_bg_input.png')
+.fake-textbox, #docContainer .fb-input-box input {
+	color: #666;
+	text-align: center;
+	background: url('../images/fb_bg_input.png')
 }
 
 .label.title {
-    font-size: 1em;
-    font-weight: 500;
-    width: auto;
+	font-size: 1em;
+	font-weight: 500;
+	width: auto;
 }
 
 .myDivTextArea {
-    overflow: auto;
-    height: auto !important;
+	overflow: auto;
+	height: auto !important;
 }
 
-.fake-textarea,
-#docContainer .fb-textarea textarea {
-    height: 140px;
-    background: url('../images/fb_bg_input.png');
+.fake-textarea, #docContainer .fb-textarea textarea {
+	height: 140px;
+	background: url('../images/fb_bg_input.png');
 }
 
 /* Rule for the text area box */
-
-.myDivTextArea,
-.fake-textarea,
-#docContainer .fb-textarea textarea {
-    height: 140px;
-    background: url('../images/fb_bg_input.png');
-    padding: 10px;
+.myDivTextArea, .fake-textarea, #docContainer .fb-textarea textarea {
+	height: 140px;
+	background: url('../images/fb_bg_input.png');
+	padding: 10px;
 }
 
 .fake-textbox {
-    align-content: center;
+	align-content: center;
 }
 
 /*Form Elements. This rule is common to all elements (inputs/selects)*/
-
-.myDivTextArea,
-.fake-textarea,
-.fake-textbox,
-#docContainer .fb-input-select,
-#docContainer input[type=text],
-#docContainer input[type=url],
-#docContainer textarea {
-    color: #666;
-    font: normal 12px 'Helvetica Neue', Helvetica;
-    border: 4px solid #89ACA9;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-    width: 95%;
-    max-width: 93%;
-    align-content: center;
+.myDivTextArea, .fake-textarea, .fake-textbox, #docContainer .fb-input-select,
+	#docContainer input[type=text], #docContainer input[type=url],
+	#docContainer textarea {
+	color: #666;
+	font: normal 12px 'Helvetica Neue', Helvetica;
+	border: 4px solid #89ACA9;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	width: 95%;
+	max-width: 93%;
+	align-content: center;
 }
 
 #docContainer .fb-footer {
-    padding: 5px 4px 15px 4px;
+	padding: 5px 4px 15px 4px;
 }
 
 /* Form Elements. This rule is common to all inputs boxes */
-
-.fake-textarea,
-.fake-textbox,
-#docContainer input[type=text],
-#docContainer input[type=url],
-#docContainer textarea {
-    padding: 7px 4px 7px 4px;
+.fake-textarea, .fake-textbox, #docContainer input[type=text],
+	#docContainer input[type=url], #docContainer textarea {
+	padding: 7px 4px 7px 4px;
 }
 
 /* Rule for the dropdown select */
-
 #docContainer .fb-dropdown .fb-input-select {
-    padding: 2px;
-    color: #666;
-    background-color: #666;
-    font: normal 12px 'Helvetica Neue', Helvetica;
-    border: 4px solid #89ACA9;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-    width: 95%;
-    max-width: 93%;
-    align-content: center;
+	padding: 2px;
+	color: #666;
+	background-color: #666;
+	font: normal 12px 'Helvetica Neue', Helvetica;
+	border: 4px solid #89ACA9;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	width: 95%;
+	max-width: 93%;
+	align-content: center;
 }
 
 #docContainer .fb-footer {
-    background-image: url('../images/fb_footer.png');
-    background-repeat: repeat-x;
-    background-position: bottom;
-    height: 82px;
-    padding: 20px;
-    align-content: center;
-    text-align: center;
+	background-image: url('../images/fb_footer.png');
+	background-repeat: repeat-x;
+	background-position: bottom;
+	height: 82px;
+	padding: 20px;
+	align-content: center;
+	text-align: center;
 }
 
 .myFont {
-    color: #666;
-    font: normal 12 px 'Helvetica Neue', Helvetica;
+	color: #666;
+	font: normal 12 px 'Helvetica Neue', Helvetica;
 }
 
 .emptyContainer50 {
-    height: 50px;
-    width: 100%;
+	height: 50px;
+	width: 100%;
 }
 
 .emptyContainer200 {
-    height: 200px;
-    width: 100%;
+	height: 200px;
+	width: 100%;
 }
 
 /*  Rule for Submit button */
-
 .fb-submit-button-div {
-    display: inline-block;
-    width: auto;
-    height: 46px;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    background: url('../images/btn_submit.png') no-repeat;
-    background: #fff;
-    border: 4px solid #bdc3c7;
-    border-radius: 20px;
+	display: inline-block;
+	width: auto;
+	height: 46px;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	background: url('../images/btn_submit.png') no-repeat;
+	background: #fff;
+	border: 4px solid #bdc3c7;
+	border-radius: 20px;
 }
 
 /*  Rule for Submit button */
-
 button {
-    border: none;
-    text-align: center;
-    align-content: center;
-    background: transparent;
-    cursor: pointer;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-    color: darkseagreen;
+	border: none;
+	text-align: center;
+	align-content: center;
+	background: transparent;
+	cursor: pointer;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+	color: darkseagreen;
 }
+
 button:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 .addcolor {
-    color: rgb(166, 166, 166) !important;
+	color: rgb(166, 166, 166) !important;
 }
 
 input.transparent-input {
-    background-color: rgba(0, 0, 0, 0) !important;
-    border: none !important;
-
-    font-size: 25px !important;
-    font-weight: normal !important;
-    font-family: 'Italianno'!important;
-    color: rgb(166, 166, 166) !important;
-
-    width: 100%;
-    padding: 5px;
-    margin: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;   
-
+	background-color: rgba(0, 0, 0, 0) !important;
+	border: none !important;
+	font-size: 25px !important;
+	font-weight: normal !important;
+	font-family: 'Italianno' !important;
+	color: rgb(166, 166, 166) !important;
+	width: 100%;
+	padding: 5px;
+	margin: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
-    /* -webkit-box-shadow: rgba(0, 0, 0, 0) !important;  -- makes it white*/
-     /* 0 0 0 1000px white inset !important; --- makes it white*/
-    transition: background-color 5000s ease-in-out 0s;
+	-webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+	/* -webkit-box-shadow: rgba(0, 0, 0, 0) !important;  -- makes it white*/
+	/* 0 0 0 1000px white inset !important; --- makes it white*/
+	transition: background-color 5000s ease-in-out 0s;
 }
