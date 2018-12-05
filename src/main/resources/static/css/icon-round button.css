@@ -1,0 +1,76 @@
+@charset "UTF-8";
+ .image-block {
+    position: relative;
+    margin-top: 50px;
+    width: 620px;
+    height: 425px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+ .image-block .fb-image + a {
+    background-color: black;
+    display: inline-block;
+    cursor: pointer; /* "hand" cursor */
+
+	/* --START-- Make Label round */
+    width: 47px;
+	height: 47px;
+    -webkit-border-radius: 50%;
+	border-radius: 50%;
+	/* --END-- Make Label round */
+	
+	/*  Center Icon */
+	vertical-align:middle;
+/*  	line-height: 75px !important;
+ */	
+	/* make invisible */
+	 opacity: 0;
+	 transition: opacity .35s ease;
+	 
+	 /*  Stack on Top */
+	 z-index: 1;
+	 
+	 /*  Position */
+	 position: absolute;
+	 top: 1%;
+	 left:1%
+}
+
+
+.round-button i {
+    display: inline-block;
+    width: inherit;
+    text-align: center;
+    color: #fff;
+    font-size: 1.25rem;
+    line-height: 47px;
+}
+
+
+.purple-gradient {
+    background: -webkit-linear-gradient(50deg,#ff6ec4,#7873f5)!important;
+    background: -o-linear-gradient(50deg,#ff6ec4,#7873f5)!important;
+    background: linear-gradient(40deg,#ff6ec4,#7873f5)!important;
+}
+
+.fb-image{
+	z-index: 0;
+    width: 620px;
+    height: 425px;
+}
+
+.image-block .fb-image:focus + a,
+.image-block .fb-image + a:hover {
+    background-color: #ff507a;
+    
+    outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 2px;
+
+}
+
+ .image-block:hover .fb-image + a {
+	/* Make Visible */
+	opacity: 1; 
+	
+}

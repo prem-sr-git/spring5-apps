@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Image Form</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+	integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+	crossorigin="anonymous">
+<!-- Bootstrap core CSS -->
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Alex+Brush|Chewy|Dancing+Script|Indie+Flower|Italianno|Tangerine" rel="stylesheet"/>	
+<!--  Custom CSS-->
+<link rel="stylesheet" type="text/css" th:href="@{/css/default.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/file-upload.css}" />
+
+</head>
+<body>
+	<form class="fb-toplabel fb-100-item-column selected-object" id="docContainer" method="post" enctype="multipart/form-data"
+	th:action="@{'/recipe/'+${recipe.id}+'/image'}">
+		<div class="fb-form-header">
+		</div>
+		<div class="section" id="section1">
+			<div class="column ui-sortable">
+				<div class="fb-item fb-100-item-column">
+					<div class="fb-header fb-item-alignment-center">
+						<h2 style="display: inline;">Upload New Recipe Image</h2>
+					</div>
+				</div>
+				<div class="emptyContainer50"></div>
+				<div class="md-form">
+					<div class="file-path-wrapper">
+						<input class="upload-path file-path validate" type="text"
+							placeholder="Upload your local file">
+					</div>
+					<div class="image-block">
+						<img class="img-upload" id="imgUpld" alt="Alternative text"
+							th:src="(${recipe.id == null} or ${recipe.id}=='null') ?@{/images/image_default.png}:@{'/recipe/' + ${recipe.id} + '/recipeimage'}" />
+
+						<div class="overlay"></div>
+
+						<input type="file" name="file" id="file" class="inputfile" /> <label
+							for="file" class="peach-gradient"><i class="fas fa-image"></i></label>
+						<!-- <label id="enlarge" class="purple-gradient"><i
+							class="fas fa-search-plus"></i></label> -->
+					</div>
+				</div>
+			</div>
+			<div class="fb-footer  fb-item-alignment-center">
+				<div class="fb-submit-button-div">
+					<h4>
+						<button type="submit">&nbsp;Save&nbsp;</button>
+					</h4>
+				</div>
+			</div>
+		</div>
+	</form>
+	<!-- SCRIPTS -->
+	<!-- JQuery -->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+		crossorigin="anonymous"></script>
+
+	<!--  Custom SCRIPTS-->
+	<script type="text/javascript" th:src="@{/js/image-upload.js}"></script>
+
+</body>
+</html>

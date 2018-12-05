@@ -4,11 +4,19 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	    crossorigin="anonymous">
-	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+	    	crossorigin="anonymous">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+
+	<!-- <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"> -->
 	<link href="https://fonts.googleapis.com/css?family=Alex+Brush|Chewy|Dancing+Script|Indie+Flower|Italianno|Tangerine" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" th:href="@{/css/default.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/my-star-rating.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/icon-round button.css}" />
 
 	<title>New Recipe Form</title>
 </head>
@@ -57,11 +65,15 @@
 
 					</div>
 				</div>
-				<div class="fb-item">
-					<a class="fb-image" href="" target="_blank">
-						<img style="width: 100%;" id="item5_img_0" alt="Alternative text" title="Alternative text" class="" th:src="@{/images/image_default.png}"
+
+				<div class="image-block">
+					<img class="fb-image" id="item5_img_0" src="../../static/images/image_default.png}"
+						th:src="(${recipe.id == null} or ${recipe.id}=='null') ?@{/images/image_default.png}:@{'/recipe/' + ${recipe.id} + '/recipeimage'}" 
 						/>
-					</a>
+						<!-- th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}" -->
+					<a class="round-button purple-gradient text-center" th:href="@{'/recipe/'+${recipe.id}+'/image'}"> 
+					<i class="fa fa-cloud-upload text-center" aria-hidden="true"></i>
+					</a>					
 				</div>
 
 				<div class="row justify-content-md-center">
@@ -182,6 +194,19 @@
 			</div>
 		</div>
 	</form>
+<!-- JQuery -->
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	    crossorigin="anonymous"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+crossorigin="anonymous"></script>	
+
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script> -->
+
+	
 </body>
 
 </html>

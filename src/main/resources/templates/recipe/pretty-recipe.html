@@ -53,7 +53,8 @@
 				</div>
 				<div class="fb-item">
 					<a class="fb-image" href="" target="_blank">
-						<img style="width: 100%;" id="item5_img_0" alt="Alternative text" title="Alternative text" class="" th:src="@{/images/image_default.png}"
+						<img style="width: 100%;" id="item5_img_0" src="../../static/images/image_default.png}" 
+						th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}"
 						/>
 					</a>
 				</div>
